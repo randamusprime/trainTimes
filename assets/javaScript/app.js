@@ -14,8 +14,17 @@ var firebaseConfig = {
   var database = firebase.database();
 
 // Submit Button
+$("#add-train-button").on('click', function(event) {
+    event.preventDefault();
 
     //Grab user input
+    var empName = $('#name-input').val().trim();
+    var empLocal = $('#location-input').val().trim();
+    var empTime = $('#time-input').val().trim();
+    var empFreq = $('#frequency-input').val().trim();
+})
+
+    
 
     //Object to hold data
 
