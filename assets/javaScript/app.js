@@ -22,13 +22,27 @@ $("#add-train-button").on('click', function(event) {
     var empLocal = $('#location-input').val().trim();
     var empTime = $('#time-input').val().trim();
     var empFreq = $('#frequency-input').val().trim();
-})
+    
+    //Object to hold data
+    var newEmp = {
+        name: empName,
+        local: empLocal,
+        time: empTime,
+        freq: empFreq
+    };
+
+    //Upload data to database
+    database.ref().push(newEmp);
+
+    console.log(newEmp.name);
+    console.log(newEmp.local);
+    console.log(newEmp.time);
+    console.log(newEmp.freq);
+});
 
     
 
-    //Object to hold data
 
-    //Upload data to database
 
     //Clear text-boxes
 
