@@ -21,14 +21,14 @@ $("#add-train-button").on('click', function(event) {
     var trainName = $('#name-input').val().trim();
     var trainLocal = $('#location-input').val().trim();
     var trainTime = $('#time-input').val().trim();
-    var trainfreq = $('#frequency-input').val().trim();
+    var trainFreq = $('#frequency-input').val().trim();
     
     //Object to hold data
     var newTrain = {
         name: trainName,
         local: trainLocal,
         time: trainTime,
-        freq: trainfreq
+        freq: trainFreq
     };
 
     //Upload data to database
@@ -49,14 +49,18 @@ $("#add-train-button").on('click', function(event) {
 });
 
 // Create event to add train to Firebase
-// Add HTML for user input
+database.ref().on('child_added', function(childSnapshot) {
+    console.log(childSnapshot.val());
 
     //Create variables
-
-    //Format time
-
-    //Math
-
+    var trainName = childSnapshot.val().name;
+    var trainLocal = childSnapshot.val().local;
+    var trainTime = childSnapshot.val().time;
+    var trainFreq = childSnapshot.val().freq;
+    
+    
     //Create new row
-
+    
     //Append to HTML
+})
+    
