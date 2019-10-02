@@ -58,6 +58,13 @@ database.ref().on('child_added', function(childSnapshot) {
     var trainTime = childSnapshot.val().time;
     var trainFreq = childSnapshot.val().freq;
     
+        //Format time
+        trainFreq = parseInt(trainFreq);
+        trainTime = parseInt(trainTime);
+    
+        var timeLeft = moment().diff(moment.unix(trainTime), 'minutes') % trainFreq;
+        var minutesAway = trainFreq - timeLeft;
+        var nextTrain = moment().add(minutesAway, 'm').format('hh:mm A');
     
     //Create new row
     
