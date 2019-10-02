@@ -66,8 +66,17 @@ database.ref().on('child_added', function(childSnapshot) {
         var minutesAway = trainFreq - timeLeft;
         var nextTrain = moment().add(minutesAway, 'm').format('hh:mm A');
     
-    //Create new row
-    
+    //Create Table
+    var trainRow = $('<tr>').append(
+        $('<td>').text(trainName),
+        $('<td>').text(trainLocal),
+        $('<td>').text(trainFreq),
+        $('<td>').text(nextTrain),
+        $('<td>').text(minutesAway)
+    );
+
     //Append to HTML
-})
+    $('#tableBody').append(trainRow);
+
+});
     
