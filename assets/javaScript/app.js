@@ -18,33 +18,35 @@ $("#add-train-button").on('click', function(event) {
     event.preventDefault();
 
     //Grab user input
-    var empName = $('#name-input').val().trim();
-    var empLocal = $('#location-input').val().trim();
-    var empTime = $('#time-input').val().trim();
-    var empFreq = $('#frequency-input').val().trim();
+    var trainName = $('#name-input').val().trim();
+    var trainLocal = $('#location-input').val().trim();
+    var trainTime = $('#time-input').val().trim();
+    var trainfreq = $('#frequency-input').val().trim();
     
     //Object to hold data
-    var newEmp = {
-        name: empName,
-        local: empLocal,
-        time: empTime,
-        freq: empFreq
+    var newTrain = {
+        name: trainName,
+        local: trainLocal,
+        time: trainTime,
+        freq: trainfreq
     };
 
     //Upload data to database
-    database.ref().push(newEmp);
+    database.ref().push(newTrain);
 
-    console.log(newEmp.name);
-    console.log(newEmp.local);
-    console.log(newEmp.time);
-    console.log(newEmp.freq);
-});
+    console.log(newTrain.name);
+    console.log(newTrain.local);
+    console.log(newTrain.time);
+    console.log(newTrain.freq);
 
-    
-
-
+    alert('Train sucessfully added!')
 
     //Clear text-boxes
+    $('#name-input').val('');
+    $('#location-input').val('');
+    $('#time-input').val('');
+    $('#frequency-input').val('');
+});
 
 // Create event to add train to Firebase
 // Add HTML for user input
