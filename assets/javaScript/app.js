@@ -34,13 +34,6 @@ $("#add-train-button").on('click', function(event) {
     //Upload data to database
     database.ref().push(newTrain);
 
-    console.log(newTrain.name);
-    console.log(newTrain.local);
-    console.log(newTrain.time);
-    console.log(newTrain.freq);
-
-    alert('Train sucessfully added!')
-
     //Clear text-boxes
     $('#name-input').val('');
     $('#location-input').val('');
@@ -50,7 +43,6 @@ $("#add-train-button").on('click', function(event) {
 
 // Create event to add train to Firebase
 database.ref().on('child_added', function(childSnapshot) {
-    console.log(childSnapshot.val());
 
     //Create variables
     var trainName = childSnapshot.val().name;
